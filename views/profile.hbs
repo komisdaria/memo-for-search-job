@@ -15,7 +15,7 @@
     <p><textarea rows="7" cols="45" name="memoAfterInterview" placeholder="Резултаты интервью, о чем договорились, может созвониться; карьерный рост, бонусная система, ваши впечатления и оценка"></textarea></p> --}}
     
 
-    <p><input type="submit" value="Создать заметку"></p>
+    <p><input type="submit" value="Создать заметку" class="butInProfile"></p>
   </form>
 </div>
 <div id="myPosts">
@@ -23,20 +23,21 @@
   <h2>Мои интервью</h2>
   {{#each allUserMemo}}
         <div class="oneMemo">
+          <p>Название компании: {{this.company}}</p>
           <p>Адрес: {{this.adress}}</p>
-          <p>Дата Интервью: {{this.date}}</p>
-          <p>Краткие требования в вакансии: {{this.text}}</p>
+          <p>Дата интервью: {{this.date}}</p>
+          <p>Краткие требования, указанные в вакансии: {{this.text}}</p>
           <p>Информация о компании, которую я нашел: {{this.infoAboutCompany}}</p>
-          <p>Мои вопросы для интервью о вакансии: {{this.myQuestions}}</p>
+          <p>Мои вопросы для интервью: {{this.myQuestions}}</p>
           <h3>Блок ниже заполните после интервью</h3>
           <p>Вопросы, которые задавали мне на интервью: {{this.companyQuestions}}</p>
           <p>Зарплата: {{this.salary}}</p>
           <p>Кто проводил интервью (имя, должность): {{this.withWhoWasInterview}}</p>
           <p>Контакты, тел или почта: {{this.contactInfo}}</p>
           <p>Заметки после интервью (впечатления, ожидания, результат): {{this.memoAfterInterview}}</p>
+ <button data-edit="{{this.id}}" class="butInProfile">Редактировать</button> 
         </div>
       {{!-- <button data-delete="{{this.id}}">Отменить интервью</button> --}}
- <button data-edit="{{this.id}}">Редактировать</button> 
   {{/each}}
 </div>
 <div id="divChange"></div>
