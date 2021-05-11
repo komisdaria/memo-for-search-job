@@ -1,0 +1,42 @@
+<div id="imageMain">
+  <div class="centered">
+    {{!-- <p>Необходимо авторизоваться чтобы просматривать свои интервью</p> --}}
+  <h1 class="title">
+	<span>Сайт-помощник, с возможностью создания заметок, заточенный под поиск работы</span>
+	<br><span>Забудьте о записках на бумаге, записях в ежеднивник, электронных таблицах</span>
+	<br><span>Теперь вы создаете на сайте заметки с необходимыми данными для прохождения собеседований и отслеживания результатов</span>
+  <br><span>С помощью нашего сервиса, поиск работы стал комфортее</span>
+  </h1>
+    <a class="primaryProfile" href="/profile" role="button">Создать заметку</a>
+  </div>
+</div>
+
+
+    {{#if users}}
+<h1>Мои интервью</h1>
+
+<main role="main">
+  <ul>
+    {{#each memo}}
+      <li>
+    <div class="mainContainerForPost">
+
+      <div class="containerForOnePost">
+          <a href="/about/{{this.id}}">{{this.company}}</a>
+          <p>Адрес: {{this.adress}}</p>
+          <p>Дата Интервью: {{this.date}}</p>
+          <p>Инфо в вакансии: {{this.text}}</p>
+          <p>Инфо, которую я нашел о компании: {{this.infoAboutCompany}}</p>
+          <p>Мои вопросы для интервью о вакансии: {{this.myQuestions}}</p>
+          <p>Вопросы, которые задавали мне на интервью: {{this.companyQuestions}}</p>
+          <p>Зарплата: {{this.salary}}</p>
+          <p>Кто проводил интервью (имя, должность): {{this.withWhoWasInterview}}</p>
+          <p>Контакты, тел или почта: {{this.contactInfo}}</p>
+          <p>Заметки после интервью (впечатления, ожидания, результат): {{this.memoAfterInterview}}</p>
+      </div>
+    </div>
+      </li>
+    {{/each}}
+  </ul>
+</main>
+{{/if}}

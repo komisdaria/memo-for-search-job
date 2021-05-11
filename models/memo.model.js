@@ -1,0 +1,21 @@
+const { Schema, model } = require('mongoose');
+
+const memoSchema = new Schema(
+  {
+    author: { type: Schema.Types.ObjectId, ref: 'User' },
+    company: { type: String, required: true },
+    adress: { type: String, required: true },
+    date: { type: Date, required: true },
+    text: { type: String, required: true },
+    infoAboutCompany: [{ type: String }],
+    myQuestions: [{ type: String }],
+    companyQuestions: [{ type: Schema.Types.ObjectId, ref: 'Questions' }],
+    salary: { type: Number, required: true },
+    withWhoWasInterview: [{ type: String }],
+    contactInfo: [{ type: String }],
+    memoAfterInterview: [{ type: String }],
+  },
+  { timestamps: true },
+);
+
+module.exports = model('Memo', memoSchema);

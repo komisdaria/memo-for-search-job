@@ -1,0 +1,40 @@
+{
+  "name": "memo-for-search-job",
+  "version": "1.0.0",
+  "description": "# Кратко о сайте Сайт-помощник, заточенный под поиск работы, с возможностью создания заметок.   Забудьте о записках, записях в ежеднивник, электронных таблицах.  Вы создаете на сайте заметки с данными:  *в какой компании собеседование,  когда,  инфо о компании, которую вы подготовили перед встречей,  свои вопросы.*",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/komisdaria/memo-for-search-job.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/komisdaria/memo-for-search-job/issues"
+  },
+  "homepage": "https://github.com/komisdaria/memo-for-search-job#readme",
+  "devDependencies": {
+    "eslint": "^7.26.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "nodemon": "^2.0.7"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "connect-mongo": "^4.4.1",
+    "cookie-parser": "^1.4.5",
+    "dotenv": "^9.0.2",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "hbs": "^4.1.2",
+    "http-errors": "^1.8.0",
+    "mongoose": "^5.12.8",
+    "morgan": "^1.10.0"
+  }
+}

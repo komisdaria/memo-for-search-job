@@ -1,0 +1,31 @@
+<div id="profileForm">
+  <h2>Добавить новую заметку</h2>
+  <form action="/profile" method="post">
+    <p><textarea rows="5" cols="45" name="text" placeholder="ваше описание или название вечеринки"></textarea></p>
+    <p>Введите место:<input type="text" name="place" id="placeParty" placeholder="Место вечеринки" required></p>
+    <p>Дата и время:<input type="datetime-local" name="datetime" required ></p>
+    <p><input type="submit" value="Отправить"></p>
+  </form>
+</div>
+<div id="myPosts">
+
+  <h2>Мои интервью</h2>
+  {{#each allUserMemo}}
+        <div class="oneMemo">
+          <p>Адрес: {{this.adress}}</p>
+          <p>Дата Интервью: {{this.date}}</p>
+          <p>Инфо в вакансии: {{this.text}}</p>
+          <p>Инфо, которую я нашел о компании: {{this.infoAboutCompany}}</p>
+          <p>Мои вопросы для интервью о вакансии: {{this.myQuestions}}</p>
+          <p>Вопросы, которые задавали мне на интервью: {{this.companyQuestions}}</p>
+          <p>Зарплата: {{this.salary}}</p>
+          <p>Кто проводил интервью (имя, должность): {{this.withWhoWasInterview}}</p>
+          <p>Контакты, тел или почта: {{this.contactInfo}}</p>
+          <p>Заметки после интервью (впечатления, ожидания, результат): {{this.memoAfterInterview}}</p>
+        </div>
+      {{!-- <button data-delete="{{this.id}}">Отменить интервью</button> --}}
+ <button data-edit="{{this.id}}">Редактировать</button> 
+  {{/each}}
+</div>
+<div id="divChange"></div>
+  <script defer src="/js/client.js"></script>

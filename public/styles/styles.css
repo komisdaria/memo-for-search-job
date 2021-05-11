@@ -1,0 +1,69 @@
+.main-nav {
+  display: flex;
+  justify-content: space-around;
+  background-color:#8D8741;
+  margin: 0 0 20px 0;
+  padding: 20px;
+  font-size: xx-large;
+  font-weight: 900;
+  /* color: #659DBD; */
+}
+
+a {
+  color: #DAAD86;
+  text-decoration: none;
+}
+
+body {
+  background-color:#FBEEC1;
+  margin: 0px;
+}
+
+footer {
+
+  padding-left: 200px;
+  padding-top: 25px;
+  background-color:#8D8741;
+}
+
+h1, h2, h3 {
+  color: #659DBD;
+}
+
+#imageMain {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-image: url(/pictures/color.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  min-width: 50vw;
+  min-height: 70vh;
+  margin: 0;
+}
+
+.centered {
+  text-align: center;
+}
+
+.title {
+	font-size: 30px;
+	color: #000;
+	padding-left: 10px;
+	line-height: 39px;
+}
+
+.title span {
+	display: inline;
+	background-color: #DAAD86;
+	padding: 5px 10px;
+	color: #8D8741;
+	font-size: 30px;
+	-webkit-box-decoration-break: clone;
+	box-decoration-break: clone;   
+}
+
+.primaryProfile {
+  /* height: ; */
+}
