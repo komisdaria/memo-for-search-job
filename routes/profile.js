@@ -25,9 +25,17 @@ router
     const user = await User.findOne({ username: req.session.username });
     newMemo = await Memo.create({
       author: user.id,
-      place: req.body.place,
-      text: req.body.text,
+      company: req.body.company,
+      adress: req.body.adress,
       date: req.body.datetime,
+      text: req.body.text,
+      infoAboutCompany: req.body.infoAboutCompany,
+      myQuestions: req.body.myQuestions,
+      companyQuestions: req.body.companyQuestions,
+      salary: req.body.salary,
+      withWhoWasInterview: req.body.withWhoWasInterview,
+      contactInfo: req.body.contactInfo,
+      memoAfterInterview: req.body.memoAfterInterview,
     });
     res.redirect('/profile');
   });

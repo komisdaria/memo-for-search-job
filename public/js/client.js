@@ -2,7 +2,7 @@ const post = document.getElementById('myPosts');
 const postBody = document.querySelector('.post-body');
 const oneMemo = document.querySelector('.oneMemo');
 const conteinerForUpdated = document.createElement('div');
-conteinerForUpdated.className = 'forUpdatedParty';
+conteinerForUpdated.className = 'forUpdatedMemo';
 const divChange = document.getElementById('divChange');
 divChange.appendChild(conteinerForUpdated);
 

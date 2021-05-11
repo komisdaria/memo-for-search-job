@@ -20,7 +20,6 @@ body {
 }
 
 footer {
-
   padding-left: 200px;
   padding-top: 25px;
   background-color:#8D8741;
@@ -48,22 +47,67 @@ h1, h2, h3 {
 }
 
 .title {
-	font-size: 30px;
+  font-family:'Fira Sans Extra Condensed';
+	font-size: 27px;
 	color: #000;
 	padding-left: 10px;
 	line-height: 39px;
 }
 
 .title span {
+  border-radius: 4px;
 	display: inline;
-	background-color: #DAAD86;
+	background-color: #BC986A;
 	padding: 5px 10px;
-	color: #8D8741;
+	color: #FBEEC1;
 	font-size: 30px;
 	-webkit-box-decoration-break: clone;
 	box-decoration-break: clone;   
 }
 
+/*кнопка на главной для создания заметки*/
 .primaryProfile {
-  /* height: ; */
+  font-size: 35px;
+  padding: 5px;
+  background: #659DBD;
+  color: #FBEEC1;
+  border-radius: 25px;
+  border: 3px solid #E7E5DD;
+  height: 40px;
+  width: 80px;
+}
+.primaryProfile:hover {
+  color: #FBEEC1;
+  background: #DAAD86;
+}
+.primaryProfile span {
+  opacity: 0;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-weight: bold;
+  transition: 0.4s ease-in-out;
+}
+.primaryProfile:hover span {
+  opacity: 1;
+  padding-left: 20px;
+  padding-right: 20px;
+  color: #BDB9AB;
+}
+
+#memoForm {
+  margin-left: 30px;
+  padding: 25px;
+  border: 3px solid #659DBD;
+  border-radius: 5px;
+  height: 500px;
+  width: 400px;
+}
+
+.containerForOneMemo{
+  margin: 30px;
+  padding: 30px;
+  border: 3px solid #659DBD;
+  border-radius: 5px;
+  height: 400px;
+  width: 600px;
 }

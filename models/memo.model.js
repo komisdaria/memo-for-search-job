@@ -10,7 +10,7 @@ const memoSchema = new Schema(
     infoAboutCompany: [{ type: String }],
     myQuestions: [{ type: String }],
     companyQuestions: [{ type: Schema.Types.ObjectId, ref: 'Questions' }],
-    salary: { type: Number, required: true },
+    salary: { type: Number },
     withWhoWasInterview: [{ type: String }],
     contactInfo: [{ type: String }],
     memoAfterInterview: [{ type: String }],

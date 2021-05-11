@@ -10,6 +10,7 @@ const indexRouter = require('./routes/index');
 const registrationRouter = require('./routes/registration/registration');
 const loginRouter = require('./routes/login');
 const logoutRouter = require('./routes/logout');
+const profileRouter = require('./routes/profile');
 
 const mongoUrl = process.env.DATABASE_STRING;
 
@@ -33,7 +34,7 @@ const options = {
   resave: false,
   saveUninitialized: false,
   cookie: {
-    expires: 10000 * 60 * 10,
+    expires: 100000 * 60 * 10,
   },
 };
 
@@ -51,6 +52,7 @@ app.use('/', indexRouter);
 app.use('/registration', registrationRouter);
 app.use('/login', loginRouter);
 app.use('/logout', logoutRouter);
+app.use('/profile', profileRouter);
 
 // Если HTTP-запрос дошёл до этой строчки,
 // значит ни один из ранее встречаемых рутов не ответил на запрос.
