@@ -10,5 +10,4 @@ router
     res.redirect('/');
   });
 
-const logoutRouter = router;
-module.exports = logoutRouter;
+module.exports = router;

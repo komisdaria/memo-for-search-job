@@ -21,9 +21,8 @@ router
     res.render('profile', { user, allUserMemo });
   })
   .post(async (req, res) => {
-    let newMemo;
     const user = await User.findOne({ username: req.session.username });
-    newMemo = await Memo.create({
+    await Memo.create({
       author: user.id,
       company: req.body.company,
       adress: req.body.adress,
@@ -40,24 +39,23 @@ router
     res.redirect('/profile');
   });
 
-router
-  .route('/:id')
-  .delete(async (req, res) => {
-    await Memo.findByIdAndDelete(req.params.id);
-    res.sendStatus(200).end();
-  });
+router.route('/:id').delete(async (req, res) => {
+  await Memo.findByIdAndDelete(req.params.id);
+  res.sendStatus(200).end();
+});
 
-router
-  .route('/:id/edit')
-  .put(async (req, res) => {
-    if (req.session.username) {
-      const { findTextForUpdate } = req.body;
-// console.log(' findTextForUpdate ', findTextForUpdate);
-      const editedMemo = await Memo.findByIdAndUpdate(req.params.id, { text: findTextForUpdate }, { new: true });
-      return res.json(editedMemo);
-    }
-    return res.render('error', { message: 'Что-то пошло не так.' });
-  });
+router.route('/:id/edit').put(async (req, res) => {
+  if (req.session.username) {
+    const { findTextForUpdate } = req.body;
+    // console.log(' findTextForUpdate ', findTextForUpdate);
+    const editedMemo = await Memo.findByIdAndUpdate(
+      req.params.id,
+      { text: findTextForUpdate },
+      { new: true },
+    );
+    return res.json(editedMemo);
+  }
+  return res.render('error', { message: 'Что-то пошло не так.' });
+});
 
-const profileRouter = router;
-module.exports = profileRouter;
+module.exports = router;

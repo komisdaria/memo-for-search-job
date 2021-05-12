@@ -1,43 +1,47 @@
-<div id="profileForm">
-  <h2>Добавить новую заметку</h2>
-  <form action="/profile" id="memoForm" method="post">
-    <p>Название компании: <input type="text" name="company" placeholder="Название компании" required></p>
-    <p>Адрес: <input type="text" name="adress" placeholder="Адрес компании" required></p>
-    <p>Дата и время интервью: <input type="datetime-local" name="datetime" required ></p>
-    <p><textarea rows="7" cols="40" name="text" placeholder="Основная информация о вакансии: условия, требования из описания"></textarea></p>
-    <p><textarea rows="5" cols="40" name="infoAboutCompany" placeholder="Что я узнал о компании до интервью"></textarea></p>
-    <p><textarea rows="5" cols="40" name="myQuestions" placeholder="Мои вопросы для интервью"></textarea></p>
-    {{!-- <p>Далее идет блок для заполнения после интервью</p>
-    <p><textarea rows="5" cols="45" name="companyQuestions" placeholder="Какие важные вопросы мне задавали, над которыми я могу поработать, что улучшить, какие задачи были"></textarea></p>
-    <p>Зарплата: <input type="number" name="salary" placeholder="Сумма в рублях"></p>
-    <p>С кем было интервью: <input type="text" name="withWhoWasInterview" placeholder="ФИО, должность"></p>
-    <p>Контакты, которые остались: <input type="text" name="contactInfo" placeholder="телефон, почта"></p>
-    <p><textarea rows="7" cols="45" name="memoAfterInterview" placeholder="Резултаты интервью, о чем договорились, может созвониться; карьерный рост, бонусная система, ваши впечатления и оценка"></textarea></p> --}}
-    
+<div class="mainContainer">
 
-    <p><input type="submit" value="Создать заметку" class="butInProfile"></p>
-  </form>
+  <div id="profileForm" class="cell">
+    <h2>Добавить новую заметку</h2>
+    <form action="/profile" id="memoForm" method="post">
+     <p class="p-style">Название компании: <input type="text" name="company" placeholder="Название компании" required 
+      class="blockProfile"></p>
+     <p class="p-style">Адрес: <input type="text" name="adress" placeholder="Адрес компании" required></p>
+     <p class="p-style">Дата и время интервью: <input type="datetime-local" name="datetime" required ></p>
+     <p class="p-style"><textarea rows="7" cols="40" name="text" placeholder="Краткие требования, указанные в вакансии"></textarea></p>
+     <p class="p-style"><textarea rows="5" cols="40" name="infoAboutCompany" placeholder="Что я узнал о компании до интервью"></textarea></p>
+     <p class="p-style"><textarea rows="5" cols="40" name="myQuestions" placeholder="Мои вопросы для интервью"></textarea></p>
+       {{!-- <p>Далее идет блок для заполнения после интервью</p>
+       <p><textarea rows="5" cols="45" name="companyQuestions" placeholder="Какие важные вопросы мне задавали, над которыми я могу поработать, что улучшить, какие задачи были"></textarea></p>
+       <p>Зарплата: <input type="number" name="salary" placeholder="Сумма в рублях"></p>
+       <p>С кем было интервью: <input type="text" name="withWhoWasInterview" placeholder="ФИО, должность"></p>
+       <p>Контакты, которые остались: <input type="text" name="contactInfo" placeholder="телефон, почта"></p>
+       <p><textarea rows="7" cols="45" name="memoAfterInterview" placeholder="Резултаты интервью, о чем договорились, может созвониться; карьерный рост, бонусная система, ваши впечатления и оценка"></textarea></p> --}}
+     <p><input type="submit" value="Создать заметку" class="butInProfile"></p>
+    </form>
+ </div>
+
 </div>
-<div id="myPosts">
 
+
+<div id="myPosts">
   <h2>Мои интервью</h2>
   {{#each allUserMemo}}
         <div class="oneMemo">
-          <p>Название компании: {{this.company}}</p>
-          <p>Адрес: {{this.adress}}</p>
-          <p>Дата интервью: {{this.date}}</p>
-          <p>Краткие требования, указанные в вакансии: {{this.text}}</p>
-          <p>Информация о компании, которую я нашел: {{this.infoAboutCompany}}</p>
-          <p>Мои вопросы для интервью: {{this.myQuestions}}</p>
-          <h3>Блок ниже заполните после интервью</h3>
-          <p>Вопросы, которые задавали мне на интервью: {{this.companyQuestions}}</p>
-          <p>Зарплата: {{this.salary}}</p>
-          <p>Кто проводил интервью (имя, должность): {{this.withWhoWasInterview}}</p>
-          <p>Контакты, тел или почта: {{this.contactInfo}}</p>
-          <p>Заметки после интервью (впечатления, ожидания, результат): {{this.memoAfterInterview}}</p>
- <button data-edit="{{this.id}}" class="butInProfile">Редактировать</button> 
+          <p class="p-style">Название компании: </p> <span>{{this.company}}</span> 
+          <p class="p-style">Адрес: </p>{{this.adress}}
+          <p class="p-style">Дата интервью: </p>{{this.date}}
+          <p class="p-style">Краткие требования, указанные в вакансии: </p>{{this.text}}
+          <p class="p-style">Информация о компании, которую я нашел: </p>{{this.infoAboutCompany}}
+          <p class="p-style">Мои вопросы для интервью: </p>{{this.myQuestions}}
+          <h3>Блок ниже заполните после интервью. Не забудьте редактировать после прохождения интервью</h3>
+          <p class="p-style">Вопросы, которые задавали мне на интервью: </p>{{this.companyQuestions}}
+          <p class="p-style">Зарплата: {{this.salary}}</p>
+          <p class="p-style">Кто проводил интервью (имя, должность): </p>{{this.withWhoWasInterview}}
+          <p class="p-style">Контакты, тел или почта: </p>{{this.contactInfo}}
+          <p class="p-style">Заметки после интервью (впечатления, ожидания, результат): </p>{{this.memoAfterInterview}}
+       <button data-delete="{{this.id}}">Отменить интервью</button>
+       <button data-edit="{{this.id}}" class="butInProfile">Редактировать</button> 
         </div>
-      {{!-- <button data-delete="{{this.id}}">Отменить интервью</button> --}}
   {{/each}}
 </div>
 <div id="divChange"></div>

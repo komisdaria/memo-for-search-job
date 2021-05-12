@@ -6,7 +6,7 @@ const router = Router();
 
 router
   .route('/')
-  .get((req, res) => {
+  .get((_req, res) => {
     res.render('login');
   })
   .post(async (req, res) => {
@@ -28,5 +28,4 @@ router
     }
   });
 
-const loginRouter = router;
-module.exports = loginRouter;
+module.exports = router;

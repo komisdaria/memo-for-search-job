@@ -8,7 +8,7 @@ const router = Router();
 
 router
   .route('/')
-  .get((req, res) => {
+  .get((_req, res) => {
     res.render('registration');
   })
   .post(async (req, res) => {
@@ -39,5 +39,4 @@ router
     }
   });
 
-const registrationRouter = router;
-module.exports = registrationRouter;
+module.exports = router;
