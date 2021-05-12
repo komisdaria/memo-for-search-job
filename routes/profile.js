@@ -44,18 +44,60 @@ router.route('/:id').delete(async (req, res) => {
   res.sendStatus(200).end();
 });
 
-router.route('/:id/edit').put(async (req, res) => {
-  if (req.session.username) {
-    const { findTextForUpdate } = req.body;
-    // console.log(' findTextForUpdate ', findTextForUpdate);
-    const editedMemo = await Memo.findByIdAndUpdate(
-      req.params.id,
-      { text: findTextForUpdate },
-      { new: true },
-    );
-    return res.json(editedMemo);
-  }
-  return res.render('error', { message: 'Что-то пошло не так.' });
-});
+// router
+//   .route('/edit/:id')
+//   .get((req, res) => {
+//     res.redirect('/edit/:id');
+//   })
+//   .post((req, res) => {
+//     res.redirect('/edit/:id');
+//   });
+
+
+
+// router
+//   .route('/:id/edit')
+//   .put(async (req, res) => {
+//     if (req.session.username) {
+//       const { idMemo } = req.params;
+//       console.log(idMemo);
+//       const {
+//         updCompany,
+//         updAdress,
+//         updDate,
+//         findTextForUpdate,
+//         updSalary,
+//         infoCompany, myQues, compQues, updWhoWasInt, contactInfo, afterInterview,
+//       } = req.body;
+
+//       const editedMemo = await Memo.findByIdAndUpdate(
+//         req.params.id,
+//         {
+//           company: updCompany,
+//           adress: updAdress,
+//           date: updDate,
+//           text: findTextForUpdate,
+//           salary: updSalary,
+//         },
+//         { new: true },
+//       );
+//       const fullEditedMemo = await Memo.findByIdAndUpdate(
+//         req.params.id,
+//         {
+//           $push: {
+//             infoAboutCompany: infoCompany,
+//             myQuestions: myQues,
+//             companyQuestions: compQues,
+//             withWhoWasInterview: updWhoWasInt,
+//             contactInfo,
+//             memoAfterInterview: afterInterview,
+//           },
+//         },
+//       );
+//       console.log(fullEditedMemo);
+//       return res.json(editedMemo, fullEditedMemo);
+//     }
+//     return res.render('error', { message: 'Что-то пошло не так в profile.js rote /edit:id.' });
+//   });
 
 module.exports = router;

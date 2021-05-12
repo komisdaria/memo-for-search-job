@@ -40,7 +40,7 @@
           <p class="p-style">Контакты, тел или почта: </p>{{this.contactInfo}}
           <p class="p-style">Заметки после интервью (впечатления, ожидания, результат): </p>{{this.memoAfterInterview}}
        <button data-delete="{{this.id}}">Отменить интервью</button>
-       <button data-edit="{{this.id}}" class="butInProfile">Редактировать</button> 
+       <a href="/edit/{{this.id}}">Редактировать</a>
         </div>
   {{/each}}
 </div>

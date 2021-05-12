@@ -1,0 +1,28 @@
+<h2>Страница для редактирования</h2>
+<form action="/edit/{{editMemo.id}}" method="POST">
+
+<div class="mainContainer">
+
+  {{#if editMemo}}
+
+          <div class="cell" id="myPosts">
+          <p class="p-style">Название компании: </p> <span>{{editMemo.company}}</span> 
+          <p class="p-style">Адрес: </p>{{editMemo.adress}}
+          <p class="p-style">Дата интервью: </p>{{editMemo.date}}
+          <p class="p-style">Краткие требования, указанные в вакансии: </p>{{editMemo.text}}
+          <p class="p-style">Информация о компании, которую я нашел: </p>{{editMemo.infoAboutCompany}}
+          <p class="p-style">Мои вопросы для интервью: </p>{{editMemo.myQuestions}}
+          <h3>Блок ниже заполните после интервью. Не забудьте редактировать после прохождения интервью</h3>
+          <p class="p-style">Вопросы, которые задавали мне на интервью: </p>{{editMemo.companyQuestions}}
+          <p class="p-style">Зарплата: {{editMemo.salary}}</p>
+          <p class="p-style">Кто проводил интервью (имя, должность): </p>{{editMemo.withWhoWasInterview}}
+          <p class="p-style">Контакты, тел или почта: </p>{{editMemo.contactInfo}}
+          <p class="p-style">Заметки после интервью (впечатления, ожидания, результат): </p>{{editMemo.memoAfterInterview}}
+       <button data-delete="{{editMemo.id}}">Отменить интервью</button>
+       <button data-edit="{{editMemo.id}}" class="butInProfile">Редактировать</button> 
+        </div>
+  {{/if}}
+</div>
+</form>
+<div id="divChange"></div>
+  <script defer src="/js/client.js"></script>

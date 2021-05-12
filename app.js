@@ -11,6 +11,7 @@ const registrationRouter = require('./routes/registration/registration');
 const loginRouter = require('./routes/login');
 const logoutRouter = require('./routes/logout');
 const profileRouter = require('./routes/profile');
+const editRouter = require('./routes/edit');
 
 const mongoUrl = process.env.DATABASE_STRING;
 
@@ -53,6 +54,7 @@ app.use('/registration', registrationRouter);
 app.use('/login', loginRouter);
 app.use('/logout', logoutRouter);
 app.use('/profile', profileRouter);
+app.use('/edit', editRouter);
 
 // Если HTTP-запрос дошёл до этой строчки,
 // значит ни один из ранее встречаемых рутов не ответил на запрос.

@@ -1,6 +1,6 @@
 const post = document.getElementById('myPosts');
 const postBody = document.querySelector('.post-body');
-const oneMemo = document.querySelector('.oneMemo');
+// const oneMemo = document.querySelector('.oneMemo');
 const conteinerForUpdated = document.createElement('div');
 conteinerForUpdated.className = 'forUpdatedMemo';
 const divChange = document.getElementById('divChange');
@@ -137,7 +137,7 @@ post.addEventListener('click', async (event) => {
     divSecondForChangeMemo.appendChild(butSubmEdit);
 
     butSubmEdit.addEventListener('click', async (e) => {
-      const response = await fetch(`/profile/${buttonEditMemoProfile}/edit`, {
+      const response = await fetch(`/edit/${buttonEditMemoProfile}`, {
         method: 'PUT',
         headers: {
           'Content-type': 'application/json',
@@ -148,18 +148,20 @@ post.addEventListener('click', async (event) => {
           updDate: inputForUpdateDate.value,
           findTextForUpdate: updateText.value,
           infoCompany: updateInfoCompany.value,
-          MyQues: updateMyQuestions.value,
+          myQues: updateMyQuestions.value,
           compQues: updateCompanyQuestions.value,
-          salary: updateSalary.value,
+          updSalary: updateSalary.value,
           updWhoWasInt: updateWithWhoWasInterview.value,
           contactInfo: updateContactInfo.value,
           afterInterview: updateAfterInterview.value,
         }),
       });
       if (response.status === 200) {
+        // window.location.assign(`/edit/${buttonEditMemoProfile}`);
         const replay = await response.json();
-        console.log(replay);
+        console.log('replay', replay);
         postBody.innerText = replay.text;
+        // post.appendChild(postBody);
       }
     });
   }
