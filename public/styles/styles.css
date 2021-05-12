@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2? family = Old + Standard + TT: wght @ 700 & display = swap');
-
 .main-nav {
   display: flex;
   justify-content: space-around;
@@ -14,9 +12,7 @@
 a {
   color: #DAAD86 ;
   text-decoration: none;
-  font-family: 'Old Standard TT', serif;
-  font-weight: 700;
-  font-size: 24px;
+  font-family:  serif;
 }
 
 .cell>a {
@@ -55,8 +51,7 @@ footer {
 h1, h2, h3 {
   color: #659DBD;
   margin: 25px;
-  font-family: 'Old Standard TT', serif;
-  font-weight: 700;
+  font-family:  serif;
 }
 
 #imageMain {
@@ -286,6 +281,11 @@ li {
 .cell>input {
   height: 40px;
   width: 400px;
+}
+
+.picEdit {
+  width: 20px;
+  height: 20px;
 }
 
 input {
