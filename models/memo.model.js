@@ -3,10 +3,10 @@ const { Schema, model } = require('mongoose');
 const memoSchema = new Schema(
   {
     author: { type: Schema.Types.ObjectId, ref: 'User' },
-    company: { type: String, required: true },
-    adress: { type: String, required: true },
-    date: { type: Date, required: true },
-    text: { type: String, required: true },
+    company: { type: String },
+    adress: { type: String },
+    date: { type: Date },
+    text: { type: String },
     infoAboutCompany: [{ type: String }],
     myQuestions: [{ type: String }],
     companyQuestions: [{ type: String }],

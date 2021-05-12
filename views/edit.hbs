@@ -1,4 +1,4 @@
-<h2>Страница для редактирования</h2>
+<h1>Страница для редактирования</h1>
 <form action="/edit/{{editMemo.id}}" method="POST">
 
 <div class="mainContainer">
@@ -6,6 +6,7 @@
   {{#if editMemo}}
 
           <div class="cell" id="myPosts">
+            <h2>Изначальные данные о компании</h1>
           <p class="p-style">Название компании: </p> <span>{{editMemo.company}}</span> 
           <p class="p-style">Адрес: </p>{{editMemo.adress}}
           <p class="p-style">Дата интервью: </p>{{editMemo.date}}
@@ -18,8 +19,10 @@
           <p class="p-style">Кто проводил интервью (имя, должность): </p>{{editMemo.withWhoWasInterview}}
           <p class="p-style">Контакты, тел или почта: </p>{{editMemo.contactInfo}}
           <p class="p-style">Заметки после интервью (впечатления, ожидания, результат): </p>{{editMemo.memoAfterInterview}}
-       <button data-delete="{{editMemo.id}}">Отменить интервью</button>
+       <p></p>
        <button data-edit="{{editMemo.id}}" class="butInProfile">Редактировать</button> 
+       <br><br>
+       <button data-delete="{{editMemo.id}}" class="butDelete">Отменить интервью</button>
         </div>
   {{/if}}
 </div>

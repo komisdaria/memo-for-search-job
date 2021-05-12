@@ -17,7 +17,7 @@ const mongoUrl = process.env.DATABASE_STRING;
 
 const app = express();
 
-const PORT = 3000;
+const PORT = process.env.PORT ?? 3003;
 
 app.set('views', path.join(process.env.PWD, 'views'));
 app.set('view engine', 'hbs');

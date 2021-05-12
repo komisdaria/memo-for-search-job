@@ -53,51 +53,29 @@ router.route('/:id').delete(async (req, res) => {
 //     res.redirect('/edit/:id');
 //   });
 
+router
+  .route('/edit/:id')
+  .get(async (req, res) => {
+    // console.log('req.params.id', req.params.id);
+    const idMemo = req.params.id;
+    console.log('idMemo ', idMemo);
+    const user = await User.findOne({ username: req.session.username });
+    console.log('НАЙТИ ЮЗЕРА: ', user);
+    // await User.findById(idMemo).populate('username');
+    const editMemo = await Memo.findOne({ _id: idMemo });
+    console.log('firstEditMemo ', editMemo);
+    res.render('edit', { user, editMemo });
+  })
+  .post(async (req, res) => {
+    console.log('req.params.id', req.params.id);
+    const idMemo = req.params.id;
+    console.log('idMemo2 from post', idMemo);
+    const user = await User.findOne({ username: req.session.username });
+    // console.log('user from post: ', user);
+    const editMemo = await Memo.findOne({ _id: idMemo });
+    // console.log('MEMO POST ', editMemo);
+    res.render('edit', { editMemo });
+  });
 
-
-// router
-//   .route('/:id/edit')
-//   .put(async (req, res) => {
-//     if (req.session.username) {
-//       const { idMemo } = req.params;
-//       console.log(idMemo);
-//       const {
-//         updCompany,
-//         updAdress,
-//         updDate,
-//         findTextForUpdate,
-//         updSalary,
-//         infoCompany, myQues, compQues, updWhoWasInt, contactInfo, afterInterview,
-//       } = req.body;
-
-//       const editedMemo = await Memo.findByIdAndUpdate(
-//         req.params.id,
-//         {
-//           company: updCompany,
-//           adress: updAdress,
-//           date: updDate,
-//           text: findTextForUpdate,
-//           salary: updSalary,
-//         },
-//         { new: true },
-//       );
-//       const fullEditedMemo = await Memo.findByIdAndUpdate(
-//         req.params.id,
-//         {
-//           $push: {
-//             infoAboutCompany: infoCompany,
-//             myQuestions: myQues,
-//             companyQuestions: compQues,
-//             withWhoWasInterview: updWhoWasInt,
-//             contactInfo,
-//             memoAfterInterview: afterInterview,
-//           },
-//         },
-//       );
-//       console.log(fullEditedMemo);
-//       return res.json(editedMemo, fullEditedMemo);
-//     }
-//     return res.render('error', { message: 'Что-то пошло не так в profile.js rote /edit:id.' });
-//   });
 
 module.exports = router;

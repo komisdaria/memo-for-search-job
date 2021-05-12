@@ -7,46 +7,94 @@ const router = Router();
 router
   .route('/:id')
   .put(async (req, res) => {
-    if (req.session.username) {
-      const idMemo = req.params.id;
-      console.log('idMemo EDIT ', idMemo);
-      const {
-        updCompany,
-        updAdress,
-        updDate,
-        findTextForUpdate,
-        updSalary,
-        infoCompany, myQues, compQues, updWhoWasInt, contactInfo, afterInterview,
-      } = req.body;
+    try {
+      if (req.session.username) {
+        const idMemo = req.params.id;
+        console.log('idMemo EDIT ', idMemo);
+        const {
+          updCompany,
+          updAdress,
+          updDate,
+          findTextForUpdate,
+          updSalary,
+          infoCompany, myQues, compQues, updWhoWasInt, contactInfo, afterInterview,
+        } = req.body;
 
-      const editedMemo = await Memo.findByIdAndUpdate(
-        req.params.id,
-        {
-          company: updCompany,
-          adress: updAdress,
-          date: updDate,
-          text: findTextForUpdate,
-          salary: updSalary,
-        },
-        { new: true },
-      );
-      const fullEditedMemo = await Memo.findByIdAndUpdate(
-        req.params.id,
-        {
-          $push: {
-            infoAboutCompany: infoCompany,
-            myQuestions: myQues,
-            companyQuestions: compQues,
-            withWhoWasInterview: updWhoWasInt,
-            contactInfo,
-            memoAfterInterview: afterInterview,
+        const editedMemo = await Memo.findByIdAndUpdate(
+          req.params.id,
+          {
+            company: updCompany,
+            adress: updAdress,
+            date: updDate,
+            text: findTextForUpdate,
+            salary: updSalary,
           },
-        },
-      );
-      console.log(fullEditedMemo);
-      return res.json(editedMemo, fullEditedMemo);
+          { new: true },
+        );
+        const fullEditedMemo = await Memo.findByIdAndUpdate(
+          req.params.id,
+          {
+            $push: {
+              infoAboutCompany: infoCompany,
+              myQuestions: myQues,
+              companyQuestions: compQues,
+              withWhoWasInterview: updWhoWasInt,
+              contactInfo,
+              memoAfterInterview: afterInterview,
+            },
+          },
+        );
+        console.log(fullEditedMemo);
+        return res.json(editedMemo, fullEditedMemo);
+      }
+    } catch (error) {
+      return res.render('error', { errorMessage: 'Что-то пошло не так в profile.js rote /edit:id.' });
     }
-    return res.render('error', { message: 'Что-то пошло не так в profile.js rote /edit:id.' });
   });
+
+// router
+//   .route('/:id')
+//   .put(async (req, res) => {
+//     if (req.session.username) {
+//       const idMemo = req.params.id;
+//       console.log('idMemo EDIT ', idMemo);
+//       const {
+//         updCompany,
+//         updAdress,
+//         updDate,
+//         findTextForUpdate,
+//         updSalary,
+//         infoCompany, myQues, compQues, updWhoWasInt, contactInfo, afterInterview,
+//       } = req.body;
+
+//       const editedMemo = await Memo.findByIdAndUpdate(
+//         req.params.id,
+//         {
+//           company: updCompany,
+//           adress: updAdress,
+//           date: updDate,
+//           text: findTextForUpdate,
+//           salary: updSalary,
+//         },
+//         { new: true },
+//       );
+//       const fullEditedMemo = await Memo.findByIdAndUpdate(
+//         req.params.id,
+//         {
+//           $push: {
+//             infoAboutCompany: infoCompany,
+//             myQuestions: myQues,
+//             companyQuestions: compQues,
+//             withWhoWasInterview: updWhoWasInt,
+//             contactInfo,
+//             memoAfterInterview: afterInterview,
+//           },
+//         },
+//       );
+//       console.log(fullEditedMemo);
+//       return res.json(editedMemo, fullEditedMemo);
+//     }
+//     return res.render('error', { errorMessage: 'Что-то пошло не так в profile rote /edit:id' });
+//   });
 
 module.exports = router;

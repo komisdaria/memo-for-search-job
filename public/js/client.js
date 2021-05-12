@@ -64,21 +64,21 @@ post.addEventListener('click', async (event) => {
 
     const updateText = document.createElement('textarea');
     updateText.rows = '7';
-    updateText.cols = '40';
+    updateText.cols = '50';
     updateText.name = 'text';
     updateText.placeholder = 'Краткие требования, указанные в вакансии';
     divSecondForChangeMemo.appendChild(updateText);
 
     const updateInfoCompany = document.createElement('textarea');
     updateInfoCompany.rows = '7';
-    updateInfoCompany.cols = '40';
+    updateInfoCompany.cols = '50';
     updateInfoCompany.name = 'infoAboutCompany';
     updateInfoCompany.placeholder = 'Что я узнал о компании до интервью';
     divSecondForChangeMemo.appendChild(updateInfoCompany);
 
     const updateMyQuestions = document.createElement('textarea');
     updateMyQuestions.rows = '7';
-    updateMyQuestions.cols = '40';
+    updateMyQuestions.cols = '50';
     updateMyQuestions.name = 'myQuestions';
     updateMyQuestions.placeholder = 'Мои вопросы для интервью';
     divSecondForChangeMemo.appendChild(updateMyQuestions);
@@ -89,7 +89,7 @@ post.addEventListener('click', async (event) => {
 
     const updateCompanyQuestions = document.createElement('textarea');
     updateCompanyQuestions.rows = '7';
-    updateCompanyQuestions.cols = '40';
+    updateCompanyQuestions.cols = '50';
     updateCompanyQuestions.name = 'companyQuestions';
     updateCompanyQuestions.placeholder = 'Какие важные вопросы мне задавали, над которыми я могу поработать, что улучшить, какие задачи были';
     divSecondForChangeMemo.appendChild(updateCompanyQuestions);
@@ -124,9 +124,13 @@ post.addEventListener('click', async (event) => {
     updateContactInfo.placeholder = 'телефон, почта';
     divSecondForChangeMemo.appendChild(updateContactInfo);
 
+    const p7 = document.createElement('p');
+    p7.className = 'p-style';
+    p7.innerText = 'Результат встречи';
+    divSecondForChangeMemo.appendChild(p7);
     const updateAfterInterview = document.createElement('textarea');
     updateAfterInterview.rows = '7';
-    updateAfterInterview.cols = '40';
+    updateAfterInterview.cols = '50';
     updateAfterInterview.name = 'memoAfterInterview';
     updateAfterInterview.placeholder = 'Резултаты интервью, о чем договорились, может созвониться; карьерный рост, бонусная система, ваши впечатления и оценка';
     divSecondForChangeMemo.appendChild(updateAfterInterview);
@@ -135,6 +139,7 @@ post.addEventListener('click', async (event) => {
     butSubmEdit.type = 'button';
     butSubmEdit.innerText = 'Подвтердить изменения';
     divSecondForChangeMemo.appendChild(butSubmEdit);
+
 
     butSubmEdit.addEventListener('click', async (e) => {
       const response = await fetch(`/edit/${buttonEditMemoProfile}`, {
@@ -157,7 +162,7 @@ post.addEventListener('click', async (event) => {
         }),
       });
       if (response.status === 200) {
-        // window.location.assign(`/edit/${buttonEditMemoProfile}`);
+        window.location.assign(`/edit/${buttonEditMemoProfile}`);
         const replay = await response.json();
         console.log('replay', replay);
         postBody.innerText = replay.text;

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2? family = Old + Standard + TT: wght @ 700 & display = swap');
+
 .main-nav {
   display: flex;
   justify-content: space-around;
@@ -10,24 +12,51 @@
 }
 
 a {
-  color: #DAAD86;
+  color: #DAAD86 ;
   text-decoration: none;
+  font-family: 'Old Standard TT', serif;
+  font-weight: 700;
+  font-size: 24px;
 }
 
-body {
+.cell>a {
+  color:#FBEEC1;
+  background: #BC986A;;
+  text-decoration: none;
+  font-family: 'Old Standard TT', serif;
+  font-weight: 700;
+  font-size: 24px;
+  border: 2px solid #8D8741;
+  /* border-radius: 6px; */
+  padding: 3px;
+  margin: 5px;
+}
+
+.cell>a:hover {
+  color:#659DBD;
+  background: #DAAD86;
+}
+
+body, html {
   background-color:#FBEEC1;
   margin: 0px;
+  padding: 0px;
+  height: 100%;
 }
 
 footer {
   padding-left: 200px;
   padding-top: 25px;
+  padding-bottom: 15px;
   background-color:#8D8741;
   color: #FBEEC1;
 }
 
 h1, h2, h3 {
   color: #659DBD;
+  margin: 25px;
+  font-family: 'Old Standard TT', serif;
+  font-weight: 700;
 }
 
 #imageMain {
@@ -99,7 +128,7 @@ h1, h2, h3 {
   border-style: none;
   /* border-radius: 4px solid #659DBD; */
   background-color: #659DBD;
-  width: 180px;
+  width: 200px;
   height: 40px;
   font-weight: bold;
   color: #FBEEC1;
@@ -107,6 +136,23 @@ h1, h2, h3 {
 }
 
 .butInProfile:hover {
+  cursor: pointer;
+  background-color: #DAAD86;
+  color: #659DBD;
+}
+
+.butDelete {
+  border-style: none;
+  /* border-radius: 4px solid #659DBD; */
+  background-color: #BC986A ;
+  width: 200px;
+  height: 40px;
+  font-weight: bold;
+  color: #FBEEC1;
+  font-size: 18px;
+}
+
+.butDelete:hover {
   cursor: pointer;
   background-color: #DAAD86;
   color: #659DBD;
@@ -211,8 +257,8 @@ form {
 }
 
 .cell {
-  border: 3px solid #659DBD;
-  width: 400px;
+  /* border: 3px solid #659DBD; */
+  width: 500px;
   height: auto;
   margin: 10px;
 
@@ -221,14 +267,28 @@ form {
 .mainContainer {
   display: flex;
   flex-wrap: wrap;
-  width: 900px;
-  justify-content:space-around;
-  padding: 5px 5px;
-  margin: auto;
+  width: 1200px;
+  /* justify-content:space-around; */
+  /* padding: 5px 5px; */
+  margin: 55px;
 }
 
 .p-style {
   font-size: larger;
   color: #696210;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
+li {
+  list-style-type: none;
+}
+
+.cell>input {
+  height: 40px;
+  width: 400px;
+}
+
+input {
+  height: 40px;
+  width: 400px;
+}
