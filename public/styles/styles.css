@@ -298,3 +298,8 @@ input {
   font-size: 18px;
   color:#124461 ;
 }
+
+.g-signin2 {
+  display: flex;
+  justify-content: center;
+}

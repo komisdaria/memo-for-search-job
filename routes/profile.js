@@ -6,6 +6,7 @@ const router = Router();
 
 // для защиты от неавторизованных пользователей
 function protect(req, res, next) {
+  console.log('req.session.username from PROFILE!', req.session.username);
   if (!req.session.username) return res.redirect('/login');
   next();
 }
@@ -76,6 +77,5 @@ router
     // console.log('MEMO POST ', editMemo);
     res.render('edit', { editMemo });
   });
-
 
 module.exports = router;

@@ -5,6 +5,12 @@ const cookieParser = require('cookie-parser');
 const createError = require('http-errors');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
+// // Google Auth
+// const { OAuth2Client } = require('google-auth-library');
+
+// const CLIENT_ID = '800846002693-klfba1bl1aagbdkep5qmocftrn06c0kb.apps.googleusercontent.com';
+// const client = new OAuth2Client(CLIENT_ID);
+
 const dbConnect = require('./db/dbConnect');
 const indexRouter = require('./routes/index');
 const registrationRouter = require('./routes/registration/registration');
@@ -25,6 +31,7 @@ app.set('view engine', 'hbs');
 app.use(morgan('dev'));
 
 app.use(express.json());
+app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public'))); // __dirname замена на process.env.PWD,
 app.use(express.urlencoded({ extended: true }));
 
@@ -47,6 +54,11 @@ app.use((req, res, next) => {
   res.locals.username = req.session.username;
   next();
 });
+
+// app.use((req, res, next) => {
+//     console.log(req.body);
+//     next();
+// });
 
 // Add routers
 app.use('/', indexRouter);
@@ -97,3 +109,8 @@ app.listen(PORT, () => {
   dbConnect();
   console.log('Server has been started on PORT ', PORT);
 });
+
+// идентификатор проекта
+// 800846002693-klfba1bl1aagbdkep5qmocftrn06c0kb.apps.googleusercontent.com
+// secret
+// i-BqNC0UwTLjLiHNKbxEJDRP

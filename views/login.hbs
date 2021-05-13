@@ -1,6 +1,7 @@
+                            <script defer src="/js/loginGoogle.js"></script>
 <h2 class="block">Вход в личный кабинет</h2>
 <form action="" method="POST">
-  <p>
+<p>
       <label for="email" class="block mar-b-1">Введите вашу почту</label>
       <input type="email" id="email" name="email" required
       class="block no-outline no-border w-100 pad-1 mar-b-2">
@@ -13,4 +14,50 @@
   </p>
   <button type="submit"
   class="block button w-100 mar-t-4 mar-b-3 pad-2 round-1 text-c center no-border no-outline">Войти</button>
-</form>
+
+
+{{!-- Настройка GOOGLE авторизации --}}
+
+
+
+
+</form> 
+
+<div class="g-signin2" data-onsuccess="onSignIn"></div>
+
+<a href="/" onclick="signOut();">Выйти/сменить Google аккаунт</a>
+
+
+
+<script>
+/*
+  function onSignIn(googleUser) {
+  var id_token = googleUser.getAuthResponse().id_token;
+
+  const xhr = new XMLHttpRequest();
+  xhr.open('POST', '/login');
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.onload = function() {
+   console.log('Signed in as: ' + xhr.responseText);
+   if(xhr.responseText == 'success') {
+   // {{!-- signOut(); --}}
+    location.assign('/profile')
+  }
+};
+xhr.send(JSON.stringify({token: id_token}));
+}
+*/
+</script>
+
+<script>
+  /*
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+  }
+  */
+</script>
+
+

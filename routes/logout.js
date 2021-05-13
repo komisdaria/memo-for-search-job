@@ -6,6 +6,7 @@ router
   .route('/')
   .get((req, res) => {
     req.session.destroy();
+    // res.clearCookie('session-token');
     res.clearCookie();
     res.redirect('/');
   });
