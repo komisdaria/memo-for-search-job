@@ -3,10 +3,10 @@
   <div id="profileForm" class="cell">
     <h2>Добавить новую заметку</h2>
     <form action="/profile" id="memoForm" method="post">
-     <p class="p-style">Название компании: <input type="text" name="company" placeholder="Название компании" required 
+     <p class="p-style">Название компании: <input type="text" name="company" placeholder="Название компании" 
       class="blockProfile"></p>
-     <p class="p-style">Адрес: <input type="text" name="adress" placeholder="Адрес компании" required></p>
-     <p class="p-style">Дата и время интервью: <input type="datetime-local" name="datetime" required ></p>
+     <p class="p-style">Адрес: <input type="text" name="adress" placeholder="Адрес компании"></p>
+     <p class="p-style">Дата и время интервью: <input type="datetime-local" name="datetime" ></p>
      <p class="p-style"><textarea rows="7" cols="50" name="text" placeholder="Краткие требования, указанные в вакансии"></textarea></p>
      <p class="p-style"><textarea rows="7" cols="50" name="infoAboutCompany" placeholder="Что я узнал о компании до интервью"></textarea></p>
      <p class="p-style"><textarea rows="7" cols="50" name="myQuestions" placeholder="Мои вопросы для интервью"></textarea></p>
@@ -27,18 +27,18 @@
 <div  class="mainContainer">
   {{#each allUserMemo}}
         <div class="cell">
-          <p class="p-style">Название компании: </p> <span>{{this.company}}</span> 
-          <p class="p-style">Адрес: </p>{{this.adress}}
-          <p class="p-style">Дата интервью: </p>{{this.date}}
-          <p class="p-style">Краткие требования, указанные в вакансии: </p>{{this.text}}
-          <p class="p-style">Информация о компании, которую я нашел: </p>{{this.infoAboutCompany}}
-          <p class="p-style">Мои вопросы для интервью: </p>{{this.myQuestions}}
-          <img src="/pictures/free-icon-chat-134808.png" alt="edit" class="picEdit"> <h3>Блок ниже заполните после интервью. Не забудьте редактировать после прохождения интервью</h3>
-          <p class="p-style">Вопросы, которые задавали мне на интервью: </p>{{this.companyQuestions}}
-          <p class="p-style">Зарплата: {{this.salary}}</p>
-          <p class="p-style">Кто проводил интервью (имя, должность): </p>{{this.withWhoWasInterview}}
-          <p class="p-style">Контакты, тел или почта: </p>{{this.contactInfo}}
-          <p class="p-style">Заметки после интервью (впечатления, ожидания, результат): </p>{{this.memoAfterInterview}}
+          <p class="p-style">Название компании:  <span class="spanMemo">{{this.company}}</span>  </p>
+          <p class="p-style">Адрес: <span class="spanMemo"> {{this.adress}}</span>  </p>
+          <p class="p-style">Дата интервью: <span class="spanMemo">{{this.date}}</span>  </p>
+          <p class="p-style">Краткие требования, указанные в вакансии: <span class="spanMemo">{{this.text}}</span>  </p>
+          <p class="p-style">Информация о компании, которую я нашел: <span class="spanMemo">{{this.infoAboutCompany}}</span>  </p>
+          <p class="p-style">Мои вопросы для интервью: <span class="spanMemo">{{this.myQuestions}}</span>  </p>
+          <h3> <img src="/pictures/free-icon-chat-134808.png" alt="edit" class="picEdit"> Не забудьте редактировать блок ниже после прохождения интервью</h3>
+          <p class="p-style">Вопросы, которые задавали мне на интервью: <span class="spanMemo">{{this.companyQuestions}} </span> </p>
+          <p class="p-style">Зарплата: <span class="spanMemo"></span> {{this.salary}}</p>
+          <p class="p-style">Кто проводил интервью (имя, должность): <span class="spanMemo">{{this.withWhoWasInterview}}</span>  </p>
+          <p class="p-style">Контакты, тел или почта: <span class="spanMemo">{{this.contactInfo}}</span> </p>
+          <p class="p-style">Заметки после интервью (впечатления, ожидания, результат): <span class="spanMemo">{{this.memoAfterInterview}} </span> </p>
          {{!-- <button data-delete="{{this.id}}">Отменить интервью</button> --}}
           <br><br><br>
           <a href="/edit/{{this.id}}">Редактировать</a>

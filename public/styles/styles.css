@@ -270,7 +270,7 @@ form {
 
 .p-style {
   font-size: larger;
-  color: #696210;
+  color:#a0994e;
   font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -284,11 +284,17 @@ li {
 }
 
 .picEdit {
-  width: 20px;
-  height: 20px;
+  width: 35px;
+  height: 35px;
+  color: #659DBD;
 }
 
 input {
   height: 40px;
   width: 400px;
+}
+
+.spanMemo {
+  font-size: 18px;
+  color:#124461 ;
 }

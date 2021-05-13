@@ -7,18 +7,18 @@
 
           <div class="cell" id="myPosts">
             <h2>Изначальные данные о компании</h1>
-          <p class="p-style">Название компании: </p> <span>{{editMemo.company}}</span> 
-          <p class="p-style">Адрес: </p>{{editMemo.adress}}
-          <p class="p-style">Дата интервью: </p>{{editMemo.date}}
-          <p class="p-style">Краткие требования, указанные в вакансии: </p>{{editMemo.text}}
-          <p class="p-style">Информация о компании, которую я нашел: </p>{{editMemo.infoAboutCompany}}
-          <p class="p-style">Мои вопросы для интервью: </p>{{editMemo.myQuestions}}
+          <p class="p-style">Название компании: <span class="spanMemo">{{editMemo.company}}</span> </p> 
+          <p class="p-style">Адрес: <span class="spanMemo">{{editMemo.adress}}</span>  </p> 
+          <p class="p-style">Дата интервью: <span class="spanMemo"> {{editMemo.date}}</span> </p>
+          <p class="p-style">Краткие требования, указанные в вакансии: <span class="spanMemo">{{editMemo.text}}</span> </p>
+          <p class="p-style">Информация о компании, которую я нашел: <span class="spanMemo">{{editMemo.infoAboutCompany}}</span> </p>
+          <p class="p-style">Мои вопросы для интервью: <span class="spanMemo">{{editMemo.myQuestions}}</span> </p>
           <h3>Блок ниже заполните после интервью. Не забудьте редактировать после прохождения интервью</h3>
-          <p class="p-style">Вопросы, которые задавали мне на интервью: </p>{{editMemo.companyQuestions}}
-          <p class="p-style">Зарплата: {{editMemo.salary}}</p>
-          <p class="p-style">Кто проводил интервью (имя, должность): </p>{{editMemo.withWhoWasInterview}}
-          <p class="p-style">Контакты, тел или почта: </p>{{editMemo.contactInfo}}
-          <p class="p-style">Заметки после интервью (впечатления, ожидания, результат): </p>{{editMemo.memoAfterInterview}}
+          <p class="p-style">Вопросы, которые задавали мне на интервью: <span class="spanMemo">{{editMemo.companyQuestions}}</span> </p>
+          <p class="p-style">Зарплата: <span class="spanMemo"></span> {{editMemo.salary}}</p>
+          <p class="p-style">Кто проводил интервью (имя, должность): <span class="spanMemo">{{editMemo.withWhoWasInterview}}</span> </p>
+          <p class="p-style">Контакты, тел или почта: <span class="spanMemo">{{editMemo.contactInfo}}</span> </p>
+          <p class="p-style">Заметки после интервью (впечатления, ожидания, результат): <span class="spanMemo">{{editMemo.memoAfterInterview}}</span> </p>
        <p></p>
        <button data-edit="{{editMemo.id}}" class="butInProfile">Редактировать</button> 
        <br><br>
