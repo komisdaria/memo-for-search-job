@@ -1,5 +1,9 @@
 const { Router } = require('express');
 const bcrypt = require('bcrypt');
+
+const fs = require('fs');
+const readline = require('readline');
+const { google } = require('googleapis');
 // Google Auth
 const { OAuth2Client } = require('google-auth-library');
 
@@ -17,6 +21,13 @@ router
   .post(async (req, res) => {
     const { token } = req.body;
     console.log('token: ', token);
+
+    fs.writeFile("token.txt", token, function(error){
+      if(error) throw error; // если возникла ошибка
+      console.log("Асинхронная запись файла завершена. Содержимое файла:");
+      let data = fs.readFileSync("token.txt", "utf8");
+      console.log(data);  // выводим считанные данные
+  });
 
     /// enter form
     const { email, password } = req.body;
@@ -59,8 +70,6 @@ router
     }
     verify()
       .then(() => {
-        // res.cookie('session-token', token);
-        // res.send('success');
       }).catch(console.error);
   });
 

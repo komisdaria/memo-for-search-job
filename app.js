@@ -5,12 +5,7 @@ const cookieParser = require('cookie-parser');
 const createError = require('http-errors');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
-// // Google Auth
-// const { OAuth2Client } = require('google-auth-library');
-
-// const CLIENT_ID = '800846002693-klfba1bl1aagbdkep5qmocftrn06c0kb.apps.googleusercontent.com';
-// const client = new OAuth2Client(CLIENT_ID);
-
+const bodyParser = require('body-parser');
 const dbConnect = require('./db/dbConnect');
 const indexRouter = require('./routes/index');
 const registrationRouter = require('./routes/registration/registration');
@@ -18,6 +13,7 @@ const loginRouter = require('./routes/login');
 const logoutRouter = require('./routes/logout');
 const profileRouter = require('./routes/profile');
 const editRouter = require('./routes/edit');
+const calendarRouter = require('./routes/calendar');
 
 const mongoUrl = process.env.DATABASE_STRING;
 
@@ -34,6 +30,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public'))); // __dirname замена на process.env.PWD,
 app.use(express.urlencoded({ extended: true }));
+// app.use(bodyParser.json());
 
 const options = {
   store: MongoStore.create({ mongoUrl }),
@@ -67,6 +64,7 @@ app.use('/login', loginRouter);
 app.use('/logout', logoutRouter);
 app.use('/profile', profileRouter);
 app.use('/edit', editRouter);
+app.use('/calendar', calendarRouter);
 
 // Если HTTP-запрос дошёл до этой строчки,
 // значит ни один из ранее встречаемых рутов не ответил на запрос.

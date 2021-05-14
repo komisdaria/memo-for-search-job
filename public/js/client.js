@@ -6,6 +6,23 @@ conteinerForUpdated.className = 'forUpdatedMemo';
 const divChange = document.getElementById('divChange');
 divChange.appendChild(conteinerForUpdated);
 
+const nameCompany = document.querySelector('.nameCompany');
+console.log(typeof nameCompany.innerText);
+const adressCompany = document.querySelector('.adressCompany');
+const dateInt = document.querySelector('.dateInt');
+const paramsComp = document.querySelector('.paramsComp');
+const myInfoAboutComp = document.querySelector('.myInfoAboutComp');
+const myQues = document.querySelector('.myQues');
+const quesForMe = document.querySelector('.quesForMe');
+const salary = document.querySelector('.salary');
+const withWho = document.querySelector('.withWho');
+const contacts = document.querySelector('.contacts');
+const myNotesAfter = document.querySelector('.myNotesAfter');
+
+
+
+
+
 post.addEventListener('click', async (event) => {
   event.preventDefault();
   const buttonEditMemoProfile = event.target.dataset.edit;
@@ -40,6 +57,7 @@ post.addEventListener('click', async (event) => {
     inputForUpdateCompany.type = 'text';
     inputForUpdateCompany.name = 'company';
     inputForUpdateCompany.placeholder = 'Название компании';
+    inputForUpdateCompany.value = nameCompany.innerText;
     divSecondForChangeMemo.appendChild(inputForUpdateCompany);
 
     const p2 = document.createElement('p');
@@ -50,6 +68,7 @@ post.addEventListener('click', async (event) => {
     inputForUpdateAdress.type = 'text';
     inputForUpdateAdress.name = 'adress';
     inputForUpdateAdress.placeholder = 'Адрес компании';
+    inputForUpdateAdress.value = adressCompany.innerText;
     divSecondForChangeMemo.appendChild(inputForUpdateAdress);
 
     const p3 = document.createElement('p');
@@ -59,6 +78,7 @@ post.addEventListener('click', async (event) => {
     const inputForUpdateDate = document.createElement('input');
     inputForUpdateDate.type = 'datetime-local';
     inputForUpdateDate.name = 'datetime';
+    inputForUpdateDate.value = dateInt.innerText;
     inputForUpdateDate.placeholder = 'Дата и время интервью';
     divSecondForChangeMemo.appendChild(inputForUpdateDate);
 
@@ -66,6 +86,7 @@ post.addEventListener('click', async (event) => {
     updateText.rows = '7';
     updateText.cols = '50';
     updateText.name = 'text';
+    updateText.value = paramsComp.innerText;
     updateText.placeholder = 'Краткие требования, указанные в вакансии';
     divSecondForChangeMemo.appendChild(updateText);
 
@@ -99,6 +120,7 @@ post.addEventListener('click', async (event) => {
     p4.innerText = 'Зарплата по итогам';
     divSecondForChangeMemo.appendChild(p4);
     const updateSalary = document.createElement('input');
+    updateSalary.value = 
     updateSalary.type = 'number';
     updateSalary.name = 'salary';
     updateSalary.placeholder = 'Сумма в рублях';
@@ -137,7 +159,10 @@ post.addEventListener('click', async (event) => {
 
     const butSubmEdit = document.createElement('button');
     butSubmEdit.type = 'button';
-    butSubmEdit.innerText = 'Подвтердить изменения';
+    butSubmEdit.innerText = 'Подтвердить изменения';
+    butSubmEdit.className = 'butInProfile';
+    butSubmEdit.style.marginLeft = '75px';
+    butSubmEdit.style.marginTop = '20px';
     divSecondForChangeMemo.appendChild(butSubmEdit);
 
 

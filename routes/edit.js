@@ -10,7 +10,7 @@ router
     try {
       if (req.session.username) {
         const idMemo = req.params.id;
-        console.log('idMemo EDIT ', idMemo);
+        // console.log('idMemo EDIT ', idMemo);
         const {
           updCompany,
           updAdress,
@@ -29,10 +29,17 @@ router
             text: findTextForUpdate,
             salary: updSalary,
           },
-          { new: true },
+          // { new: true },
         );
         const fullEditedMemo = await Memo.findByIdAndUpdate(
           req.params.id,
+          // {
+          //   company: updCompany,
+          //   adress: updAdress,
+          //   date: updDate,
+          //   text: findTextForUpdate,
+          //   salary: updSalary,
+          // },
           {
             $push: {
               infoAboutCompany: infoCompany,
@@ -44,8 +51,8 @@ router
             },
           },
         );
-        console.log(fullEditedMemo);
-        return res.json(editedMemo, fullEditedMemo);
+        // console.log(fullEditedMemo);
+        return res.json(fullEditedMemo);
       }
     } catch (error) {
       return res.render('error', { errorMessage: 'Что-то пошло не так в profile.js rote /edit:id.' });

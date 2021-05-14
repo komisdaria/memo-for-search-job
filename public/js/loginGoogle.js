@@ -21,7 +21,7 @@ function onSignIn(googleUser) {
     if (response.status === 200) {
       window.location.assign('/profile');
     }
-})
+  });
 }
 
 function signOut() {
