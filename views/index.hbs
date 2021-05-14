@@ -23,17 +23,17 @@
 
       <div class="containerForOneMemo">
           <h4><a href="/edit/{{this.id}}">Подробнее: {{this.company}}</a></h4>
-          <p>Адрес: {{this.adress}}</p>
-          <p>Дата Интервью: {{this.date}}</p>
-          <p>Инфо в вакансии: {{this.text}}</p>
-          <p>Инфо, которую я нашел о компании: {{this.infoAboutCompany}}</p>
-          <p>Мои вопросы для интервью о вакансии: {{this.myQuestions}}</p>
-          <h3><img src="/pictures/free-icon-chat-134808.png" alt="edit" class="picEdit">Не забудьте дополнить после прохождения интервью</h3>
-          <p>Вопросы, которые задавали мне на интервью: {{this.companyQuestions}}</p>
-          <p>Зарплата: {{this.salary}}</p>
-          <p>Кто проводил интервью (имя, должность): {{this.withWhoWasInterview}}</p>
-          <p>Контакты, тел или почта: {{this.contactInfo}}</p>
-          <p>Заметки после интервью (впечатления, ожидания, результат): {{this.memoAfterInterview}}</p>
+          <p class="p-style">Адрес: <span class="spanMemo">{{this.adress}} </span> </p>
+          <p class="p-style">Дата Интервью: <span class="spanMemo"> {{this.date}}</span> </p>
+          <p class="p-style">Инфо в вакансии: <span class="spanMemo"> {{this.text}}</span> </p>
+          <p class="p-style">Инфо, которую я нашел о компании: <span class="spanMemo">{{this.infoAboutCompany}}</span> </p>
+          <p class="p-style">Мои вопросы для интервью о вакансии: <span class="spanMemo"> {{this.myQuestions}}</span> </p>
+          <h3><img src="/pictures/free-icon-chat-134808.png" alt="edit" class="picEdit">Заполните полностью после прохождения интервью</h3>
+          <p class="p-style">Вопросы, которые задавали мне на интервью: <span class="spanMemo">{{this.companyQuestions}}</span> </p>
+          <p class="p-style">Зарплата: <span class="spanMemo"> {{this.salary}}</span> </p>
+          <p class="p-style">Кто проводил интервью (имя, должность): <span class="spanMemo"> {{this.withWhoWasInterview}}</span> </p>
+          <p class="p-style">Контакты, тел или почта: <span class="spanMemo"> {{this.contactInfo}}</span> </p>
+          <p class="p-style">Заметки после интервью (впечатления, ожидания, результат): <span class="spanMemo">{{this.memoAfterInterview}} </span> </p>
       </div>
     </div>
       </li>
@@ -41,3 +41,38 @@
   </ul>
 </main>
 {{/if}}
+         <div id="map" style="width: 600px; height: 400px"></div>
+
+
+         <script type="text/javascript">
+    // Функция ymaps.ready() будет вызвана, когда
+    // загрузятся все компоненты API, а также когда будет готово DOM-дерево.
+    ymaps.ready(init);
+    function init(){
+        // Создание карты.
+        var myMap = new ymaps.Map("map", {
+            // Координаты центра карты.
+            // Порядок по умолчанию: «широта, долгота».
+            // Чтобы не определять координаты центра карты вручную,
+            // воспользуйтесь инструментом Определение координат.
+            center: [55.76, 37.64],
+            // Уровень масштабирования. Допустимые значения:
+            // от 0 (весь мир) до 19.
+            zoom: 13,
+            controls: []
+        });
+        // Создадим экземпляр элемента управления «поиск по карте»
+    // с установленной опцией провайдера данных для поиска по организациям.
+    var searchControl = new ymaps.control.SearchControl({
+        options: {
+            provider: 'yandex#search'
+        }
+    });
+    
+    myMap.controls.add(searchControl);
+    
+    // Программно выполним поиск определённых кафе в текущей
+    // прямоугольной области карты.
+    searchControl.search({{this.adress}});
+    }
+</script>

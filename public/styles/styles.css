@@ -276,7 +276,7 @@ form {
 }
 
 .p-style {
-  font-size: larger;
+  font-size: large;
   color:#a0994e;
   font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -316,4 +316,15 @@ input {
   display: flex;
   justify-content: center;
   margin: 25px;
+}
+
+.mainContainerForPost {
+  display: flex;
+  justify-content: flex-start;
+}
+
+#map {
+  margin-left: 400px;
+  margin-bottom: 50px;
+  /* padding-top: 100px; */
 }
